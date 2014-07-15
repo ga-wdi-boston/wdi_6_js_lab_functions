@@ -1,20 +1,13 @@
-content = "what the hell is going on. stupid javascript!";
-badWords = ["hell", "stupid"];
-
 // regularPrint(content) – accepts a string content and prints it to the console
 function regularPrint(content) {
   console.log(content);
 }
-
-regularPrint(content);
 
 // loudPrint(content) – accepts a string content and prints an upcased version
 // of it surrounded by stars (e.g. ***THIS VIDEO SUCKS***)
 function loudPrint(content) {
   console.log("***" + content.toUpperCase() + "***");
 }
-
-loudPrint(content);
 
 // omissionCensor(content, badWords) – accepts a string content and an array of
 // strings badWords, and returns a version of content with all instances of the
@@ -26,8 +19,6 @@ function omissionCensor(content, badWords) {
   });
   return censoredWords.join(" ");
 }
-
-console.log(omissionCensor(content, badWords));
 
 // substitutionCensor(content, badWords) – accepts a string content and an array
 // of strings badWords, and returns a version of content with all instances of the
@@ -47,8 +38,6 @@ function substitutionCensor(content, badWords) {
   return substitutedWords.join(" ");
 }
 
-console.log(substitutionCensor(content, badWords));
-
 // publishComment(comment, badWords, censorFunction, printFunction) – accepts a
 // string comment, an array of strings badWords, a function to censor the comment
 // censorFunction, and a function to print the comment printFunction
@@ -57,3 +46,11 @@ function publishComment(comment, badWords, censorFunction, printFunction) {
 }
 
 publishComment("what the hell is going on", ["damn", "hell"], omissionCensor, loudPrint);
+
+
+// snakePrint(comment) - prints a snake cased version of the comment
+function snakePrint(content){
+  console.log(content.replace(/ /g, "_"));
+}
+
+publishComment("what the hell is going on", ["damn", "hell"], omissionCensor, snakePrint);
