@@ -50,7 +50,7 @@ publishComment("what the hell is going on", ["damn", "hell"], omissionCensor, lo
 
 // snakePrint(comment) - prints a snake cased version of the comment
 function snakePrint(content){
-  console.log(content.replace(/ /g, "_"));
+  console.log(content.toLowerCase().replace(/ /g, "_"));
 }
 
-publishComment("what the hell is going on", ["damn", "hell"], omissionCensor, snakePrint);
+publishComment("What the hell is going on", ["damn", "hell"], omissionCensor, snakePrint);
