@@ -76,3 +76,19 @@ function symbolCensor(content, badWords){
 }
 
 publishComment("What the hell is going on", ["damn", "hell"], symbolCensor, snakePrint);
+
+// Define a function generateCommentPublisher(badWords, censorFunction, printFunction)
+// This function should return a new function which only takes one string argument,
+// and "publishes" it using the badWords, censorFunction, and printFunction that
+// were specified when it was generated.
+function generateCommentPublisher(badWords, censorFunction, printFunction) {
+  return function(content){
+    return publishComment(content, badWords, censorFunction, printFunction);
+  };
+}
+
+var loudOmissionAntiSwearingPublisher = generateCommentPublisher(["shit", "crap"], omissionCensor, loudPrint);
+loudOmissionAntiSwearingPublisher("javascript is the shit");
+
+var regularSubstitutionRubyHaterPublisher = generateCommentPublisher(["ruby", "rails", "Matz"], substitutionCensor, regularPrint);
+regularSubstitutionRubyHaterPublisher("I think that Hari and Matz and ruby on rails are the best");
