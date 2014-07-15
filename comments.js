@@ -54,3 +54,25 @@ function snakePrint(content){
 }
 
 publishComment("What the hell is going on", ["damn", "hell"], omissionCensor, snakePrint);
+
+// symbolCensor(content, badWords) - returns the string with all bad words replaced
+// with random symbols
+function symbolCensor(content, badWords){
+  symbols = "!@#$%&*";
+
+  var words = content.split(" ");
+  var symbolizedWords = words.map(function(word){
+    if(badWords.indexOf(word) !== -1){
+      symbol = "";
+      for(i = 0; i < word.length; i++){
+        symbol += (symbols[Math.floor(Math.random() * symbols.length)]);
+      }
+      return symbol;
+    } else {
+      return word;
+    }
+  });
+  return symbolizedWords.join(" ");
+}
+
+publishComment("What the hell is going on", ["damn", "hell"], symbolCensor, snakePrint);
