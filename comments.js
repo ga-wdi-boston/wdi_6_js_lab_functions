@@ -48,3 +48,12 @@ function substitutionCensor(content, badWords) {
 }
 
 console.log(substitutionCensor(content, badWords));
+
+// publishComment(comment, badWords, censorFunction, printFunction) – accepts a
+// string comment, an array of strings badWords, a function to censor the comment
+// censorFunction, and a function to print the comment printFunction
+function publishComment(comment, badWords, censorFunction, printFunction) {
+  printFunction(censorFunction(comment, badWords));
+}
+
+publishComment("what the hell is going on", ["damn", "hell"], omissionCensor, loudPrint);
