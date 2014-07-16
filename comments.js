@@ -15,6 +15,8 @@ function radioPrint(content){
 function omissionCensor(content, badWords){
   var splitContent = content.split(' ');
   badWords.forEach(function(badWord){
+    // instead of a second loop
+    // content = content.split(badWord).join(' ');
     splitContent.forEach(function(word,i){
       if (badWord === word){splitContent[i]= '____';}
     });
