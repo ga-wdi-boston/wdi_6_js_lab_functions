@@ -12,11 +12,34 @@ function loudPrint(content) {
 
 // * `omissionCensor(content, badWords)` &ndash; accepts a string `content` and an array of strings `badWords`, and returns a version of `content` with all instances of the strings in `badWords` removed
 function omissionCensor(content, badWords) {
-
+    var arr = content.split('');
+    var cleanContent = [];
+    var arrGoodWords
+    for(var i = 0; i < arr.length; i++) {
+      // -1 refers to the previous index number
+      if(!cleanContent.indexOf(badWords[i]) === -1 ) {
+          cleanContent.push(arrGoodWords[Math.random(2)]);
+      }
+    }
+    return cleanContent;
 }
 
 
 // * `substitutionCensor(content, badWords)` &ndash; accepts a string `content` and an array of strings `badWords`, and returns a version of `content` with all instances of the strings in `badWords` replaced with a random element from an array of "substitute" strings (internally defined in the function)
+function omissionCensor(content, badWords) {
+    var arr = content.split('');
+    var arrGoodWords = ['silly', 'ducky', 'outrageous']
+    var cleanContent = [];
+    for(var i = 0; i < arr.length; i++) {
+      // -1 refers to the previous index number
+      for (var c = 0; c < 3; c++) {
+        if(!cleanContent.indexOf(badWords[i]) === -1 ) {
+            cleanContent.push(arrGoodWords[c]);
+        }
+      }
+    }
+    return cleanContent;
+}
 
 // * `publishComment(comment, badWords, censorFunction, printFunction)` &ndash; accepts a string `comment`, an array of strings `badWords`, a function to censor the comment `censorFunction`, and a function to print the comment `printFunction`
 
