@@ -12,3 +12,15 @@ function loudPrint(content) {
   return "***" + content.toUpperCase() + "***";
 }
 
+// `omissionCensor(content, badWords)` &ndash; accepts a string `content` and an array of strings `badWords`, and returns a version of `content` with all instances of the strings in `badWords` removed
+
+function omissionCensor(content, badWords) {
+ badWords.forEach(function(badWord) {
+  content = content.replace(badWord + ' ', '');
+  content = content.replace(' ' + badWord, '');
+  content = content.replace(badWord, '');
+ });
+ return content;
+}
+
+
