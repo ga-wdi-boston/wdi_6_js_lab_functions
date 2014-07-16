@@ -44,3 +44,6 @@ regularSubstitutionRubyHaterPublisher("I think that Hari and Matz and ruby on ra
 ## Further Reading
 
 If you want to read more on these concepts, and feel somewhat comfortable with the exercise, you may want to have a look at the [Functional Programming chapter](http://eloquentjavascript.net/chapter6.html) from the book Eloquent JavaScript. The rest of the book is worth a look as well.
+
+
+rewrite mbta thing in js
