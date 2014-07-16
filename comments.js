@@ -40,3 +40,11 @@ function substitutionCensor(content, badWords) {
 
 console.log(substitutionCensor(content, badWords));
 
+// 5.)
+var publishComment = function(comment, badWords, censorFunction, printFunction) {
+  printFunction(censorFunction(comment, badWords));
+};
+
+publishComment("Fucksake, mate... What am I doing!?", ['fuck', 'cunt'], omissionCensor, loudPrint);
+
+
