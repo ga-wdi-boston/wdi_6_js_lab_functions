@@ -50,7 +50,7 @@ var substitutionCensor = function(content, badWords){
     if(badWords.indexOf(word) < 0) {
       cleanWords.push(word);
     } else {
-      var index = Math.floor(Math.random * substitutes.length);
+      var index = Math.floor(Math.random() * substitutes.length);
       cleanWords.push(substitutes[index]);
     }
   });
@@ -84,14 +84,14 @@ publishComment("what the damn hell is going on", ["damn", "hell"], substitutionC
  */
 var sillyPrint = function(content) {
   var silly = '';
-  for(var i = 1; i < content.length; i++) {
+  for(var i = 0; i < content.length; i++) {
     silly += (i % 2 === 0) ? content[i].toUpperCase() : content[i];
   }
-  console.log(result);
+  console.log(silly);
 };
 
 var snoopDogCensor = function(content, badWords) {
-  var rawWords = content.replace(/[^a-zA-Z0-9\., ]\g/, '').split(' ');
+  var rawWords = content.replace(/[^A-Za-z0-9\?\!\., ]/g, '').split(' ');
   var hizzleWords = [];
   rawWords.forEach(function(word){
     if(badWords.indexOf(word) < 0) {
@@ -103,8 +103,8 @@ var snoopDogCensor = function(content, badWords) {
   return hizzleWords.join(' ');
 };
 
-publishComment("Off the hook fo sure, dawg", ['hook', 'sure', 'dawg'], snoopDogCensor, regularPrint);
-publishComment("Off the hook fo sure, dawg", ['hook', 'sure', 'dawg'], snoopDogCensor, sillyPrint);
+publishComment("Off the hook fo sure dawg", ['hook', 'sure', 'dawg'], snoopDogCensor, regularPrint);
+publishComment("Off the hook fo sure dawg", ['hook', 'sure', 'dawg'], snoopDogCensor, sillyPrint);
 
 /**
  * Extra Challenge:
