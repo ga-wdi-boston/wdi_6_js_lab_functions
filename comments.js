@@ -23,3 +23,20 @@ function omissionCensor(content, badWords) {
 
 console.log(omissionCensor(content, badWords));
 
+// 4.)
+function substitutionCensor(content, badWords) {
+  substitute = ['foot', 'underwear', 'soup'];
+  var words = content.split(" ");
+  var substituteWords = words.map(function(word) {
+    if(badWords.indexOf(word) !== -1) {
+      return substitute[Math.floor(Math.random() * substitute.length)];
+     }
+     else {
+        return word;
+      }
+  });
+  return substituteWords.join(" ");
+}
+
+console.log(substitutionCensor(content, badWords));
+
