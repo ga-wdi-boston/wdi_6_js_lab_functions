@@ -47,9 +47,14 @@ function generateCommentPublisher(badWords, censorFunction, printFunction) {
 
 // Getting an error, badWords === undefined....wat
 // this is the exact same 2 lines as every other
-// function preserveCase(content, badWords, censorFunction) {
-
-// }
+function preserveCase(content, badWords, censorFunction) {
+result = getWordsWithOmits(content, badWords);
+  for(var i=0; i<result.length; i++) {
+    if (result[i] === content[i].toLowerCase())
+      result[i] = content[i];
+  }
+  return result;
+}
 
 function publishComment(content, badWords, censorFunction, printFunction) {
   printFunction(censorFunction(content, badWords));
