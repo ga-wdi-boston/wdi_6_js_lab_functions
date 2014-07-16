@@ -7,7 +7,7 @@ function loudPrint(content) {
 }
 
 function getWordsWithOmits(content, badWords) {
- result = content.toLowerCase().split(' ');
+ var result = content.toLowerCase().split(' ');
   badWords.forEach(function(reuslt, word) {
     result[result.indexOf(badWords[word])] = "";
   });
@@ -19,8 +19,8 @@ function omissionCensor(content, badWords) {
 }
 
 function substitutionCensor(content, badWords)  {
-  substitute = ["fluffy", "nerd", "alpha", "blorp", "'sigh'", "<('-']<"];
-  result = getWordsWithOmits(content, badWords);
+  var substitute = ["fluffy", "nerd", "alpha", "blorp", "'sigh'", "<('-']<"];
+  var result = getWordsWithOmits(content, badWords);
   for(var i = 0; i< result.length; i++) {
     if (result[i] === "") {
       result[i] = substitute[Math.round(Math.random(substitute.length))];
@@ -30,7 +30,7 @@ function substitutionCensor(content, badWords)  {
 }
 
 function kirbify(content, badWords) {
-  result = getWordsWithOmits(content, badWords);
+  var result = getWordsWithOmits(content, badWords);
   for(var i=0; i<result.length; i++) {
     if (result[i] === "")
       return "(╯°□°）╯︵ ┻━┻ WATCH YOUR TONE";
@@ -48,7 +48,7 @@ function generateCommentPublisher(badWords, censorFunction, printFunction) {
 // Getting an error, badWords === undefined....wat
 // this is the exact same 2 lines as every other
 function preserveCase(content, badWords, censorFunction) {
-result = getWordsWithOmits(content, badWords);
+var result = getWordsWithOmits(content, badWords);
   for(var i=0; i<result.length; i++) {
     if (result[i] === content[i].toLowerCase())
       result[i] = content[i];
