@@ -1,8 +1,3 @@
-console.log('It works!');
-
-content = "Get tae fuck you daft cunt, ken";
-badWords = ['fuck', 'cunt'];
-
 // 1.)
 function regularPrint(content) {
   console.log(content);
@@ -13,6 +8,18 @@ function loudPrint(content) {
   console.log('***' + content.toUpperCase() + '***');
 }
 
-function omissionCensor(content, badWords){
+// 3.)
 
+content = "Get tae fuck you daft cunt, ken!";
+badWords = ["fuck", "cunt"];
+
+function omissionCensor(content, badWords) {
+  var words = content.split(" ");
+  var redactedSentence = words.filter(function(word){
+    return badWords.indexOf(word) < 0;
+  });
+  return redactedSentence.join(" ");
 }
+
+console.log(omissionCensor(content, badWords));
+
