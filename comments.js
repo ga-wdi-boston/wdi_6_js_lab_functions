@@ -1,17 +1,17 @@
 // * `regularPrint(content)` &ndash; accepts a string `content` and prints it to the console
 
-function regularPrint(content) {
+var print = function regularPrint(content) {
   console.log(content);
 }
 
 // * `loudPrint(content)` &ndash; accepts a string `content` and prints an upcased version of it surrounded by stars (e.g. `***THIS VIDEO SUCKS***`)
-function loudPrint(content) {
+var loud = function loudPrint(content) {
   var msg = '**' + content.toUpperCase + '**';
   console.log(msg);
 }
 
 // * `omissionCensor(content, badWords)` &ndash; accepts a string `content` and an array of strings `badWords`, and returns a version of `content` with all instances of the strings in `badWords` removed
-function omissionCensor(content, badWords) {
+var omit = function omissionCensor(content, badWords) {
     var arr = content.split('');
     var cleanContent = [];
     var arrGoodWords
@@ -26,7 +26,7 @@ function omissionCensor(content, badWords) {
 
 
 // * `substitutionCensor(content, badWords)` &ndash; accepts a string `content` and an array of strings `badWords`, and returns a version of `content` with all instances of the strings in `badWords` replaced with a random element from an array of "substitute" strings (internally defined in the function)
-function omissionCensor(content, badWords) {
+var sub = function substitutionCensor(content, badWords) {
     var arr = content.split('');
     var arrGoodWords = ['silly', 'ducky', 'outrageous']
     var cleanContent = [];
@@ -42,6 +42,11 @@ function omissionCensor(content, badWords) {
 }
 
 // * `publishComment(comment, badWords, censorFunction, printFunction)` &ndash; accepts a string `comment`, an array of strings `badWords`, a function to censor the comment `censorFunction`, and a function to print the comment `printFunction`
+
+function publishComment(comment, badWords, censorFunction, printFunction) {
+
+
+}
 
 // **Note:** Don't worry about handling punctuation gracefully. For now, just use simple strings with no punctuation.
 
