@@ -25,7 +25,7 @@ var loudPrint = function(content) {
  * with all instances of the strings in badWords removed.
  */
 var omissionCensor = function(content, badWords) {
-  var rawWords = content.replace(/[^a-zA-Z0-9\., ]\g/, '').split(' ');
+  var rawWords = content.replace(/[^A-Za-z0-9\?\!\., ]/g, '').split(' ');
   var cleanWords = [];
   rawWords.forEach(function(word){
     if(badWords.indexOf(word) < 0) {
@@ -43,8 +43,8 @@ var omissionCensor = function(content, badWords) {
  * in the function).
  */
 var substitutionCensor = function(content, badWords){
-  var substitutes = ['happy', 'snoozy', 'sleepy', 'dopey'];
-  var rawWords = content.replace(/[^a-zA-Z0-9\., ]\g/, '').split(' ');
+  var substitutes = ['happy', 'snoozy', 'sleepy', 'dopey', 'grumpy'];
+  var rawWords = content.replace(/[^A-Za-z0-9\?\!\., ]/g, '').split(' ');
   var cleanWords = [];
   rawWords.forEach(function(word){
     if(badWords.indexOf(word) < 0) {
