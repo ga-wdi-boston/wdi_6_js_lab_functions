@@ -25,7 +25,7 @@ function omissionCensor(content, badWords) {
 // strings in badWords replaced with a random element from an array of "substitute"
 // strings (internally defined in the function)
 function substitutionCensor(content, badWords) {
-  substitute = ["monkeys", "eat", "bananas"];
+  var substitute = ["monkeys", "eat", "bananas"];
 
   var words = content.split(" ");
   var substitutedWords = words.map(function(word){
@@ -58,12 +58,12 @@ publishComment("What the hell is going on", ["damn", "hell"], omissionCensor, sn
 // symbolCensor(content, badWords) - returns the string with all bad words replaced
 // with random symbols
 function symbolCensor(content, badWords){
-  symbols = "!@#$%&*";
+  var symbols = "!@#$%&*";
 
   var words = content.split(" ");
   var symbolizedWords = words.map(function(word){
     if(badWords.indexOf(word) !== -1){
-      symbol = "";
+      var symbol = "";
       for(i = 0; i < word.length; i++){
         symbol += (symbols[Math.floor(Math.random() * symbols.length)]);
       }
